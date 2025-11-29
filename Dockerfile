@@ -32,4 +32,4 @@ RUN mkdir -p /root/.insightface/models/buffalo_l && \
 ENV PORT=5000
 
 # 8. Jalankan aplikasi
-CMD gunicorn app:app -b 0.0.0.0:$PORT
+CMD gunicorn app:app --workers 1 --threads 8 --timeout 0 -b 0.0.0.0:$PORT

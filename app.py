@@ -9,6 +9,7 @@ from facenet_pytorch import InceptionResnetV1
 from torchvision import transforms
 from insightface.app import FaceAnalysis
 from skimage import transform as trans
+import gc
 
 app = Flask(__name__)
 
@@ -28,6 +29,7 @@ num_classes = len(class_names)
 # Menggunakan onnxruntime CPU
 face_app = FaceAnalysis(name='buffalo_l', root='/root/.insightface', providers=['CPUExecutionProvider'])
 face_app.prepare(ctx_id=0, det_size=(640, 640))
+gc.collect()
 
 # Transformasi Gambar (Sama seperti saat training validation)
 val_tf = transforms.Compose([
@@ -67,6 +69,7 @@ checkpoint = torch.load(MODEL_PATH, map_location=DEVICE)
 model.load_state_dict(checkpoint['state_dict'])
 model.to(DEVICE)
 model.eval()
+gc.collect()
 print("Model loaded!")
 
 # --- 4. API ROUTES ---
