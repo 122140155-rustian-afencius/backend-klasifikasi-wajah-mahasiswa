@@ -26,7 +26,7 @@ num_classes = len(class_names)
 # --- 2. PREPROCESSING SETUP (InsightFace) ---
 # Inisialisasi Detektor Wajah
 # Menggunakan onnxruntime CPU
-face_app = FaceAnalysis(name='buffalo_l', providers=['CPUExecutionProvider'])
+face_app = FaceAnalysis(name='buffalo_l', root='/root/.insightface', providers=['CPUExecutionProvider'])
 face_app.prepare(ctx_id=0, det_size=(640, 640))
 
 # Transformasi Gambar (Sama seperti saat training validation)
