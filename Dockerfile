@@ -7,7 +7,7 @@ WORKDIR /app
 # 3. Instal dependensi sistem yang dibutuhkan oleh OpenCV & InsightFace
 # Library libgl1 dan libglib2 seringkali dibutuhkan agar cv2 tidak error
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
