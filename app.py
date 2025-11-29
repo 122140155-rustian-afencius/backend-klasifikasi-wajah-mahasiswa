@@ -129,7 +129,8 @@ def predict():
             results.append({
                 "rank": i + 1,
                 "class": class_names[top5_idx[i]],
-                "confidence": float(f"{top5_prob[i]:.4f}")
+                "confidence": float(f"{top5_prob[i]:.4f}"),
+                "confidence_percent": f"{top5_prob[i]*100:.2f}%"
             })
 
         return jsonify({
