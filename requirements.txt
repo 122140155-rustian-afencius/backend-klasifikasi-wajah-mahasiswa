@@ -1,0 +1,10 @@
+Flask
+gunicorn
+numpy
+Pillow
+opencv-python-headless
+insightface
+onnxruntime
+facenet-pytorch
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision --index-url https://download.pytorch.org/whl/cpu
